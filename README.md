@@ -1,0 +1,2 @@
+# darbs
+ķīmijas tabula
