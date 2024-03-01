@@ -1,0 +1,55 @@
+body, table {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+  }
+  
+  /* Style the body */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  /* Style the table */
+  table {
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+  }
+  
+  /* Style table header */
+  th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Style table rows */
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style table cells */
+  td {
+    padding: 10px;
+  }
+  
+  /* Style radio buttons */
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  /* Style container div */
+  div {
+    margin-bottom: 20px;
+  }
+  
+  /* Style radio button labels */
+  label {
+    font-size: 16px;
+  }

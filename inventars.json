@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div>
+  <label><input type="radio" name="category" value="all" checked> Show All</label>
+  <label><input type="radio" name="category" value="inventory"> Inventory</label>
+  <label><input type="radio" name="category" value="materials"> Materials</label>
+</div>
+
+<table id="inventoryTable">
+  <!-- Table header -->
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Count</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+  <!-- Table body -->
+  <tbody>
+    <!-- Data will be inserted here -->
+  </tbody>
+</table>
+
+<script>
+$(document).ready(function() {
+  // Sample data
+  var data = [
+    {
+      "id": 1,
+      "name": "Mehāniskie svari QWS",
+      "type": "svari",
+      "count": 5,
+      "comments": ""
+    },
+    {
+      "id": 2,
+      "name": "Elektroniskie svari ES-25",
+      "type": "svari",
+      "count": 15,
+      "comments": "Darbojas uz 3 AAA tipa baterijām"
+    },
+    {
+      "id": 3,
+      "name": "Elektriskā plītīņa",
+      "type": "sildītājs",
+      "count": 8,
+      "comments": "Strāvas vada garums 1m"
+    },
+    {
+      "id": 4,
+      "name": "Milzīgās kolbas",
+      "type": "trauks",
+      "count": 100,
+      "comments": "Kolbas īpaši lielām vielām"
+    },
+    {
+      "id": 5,
+      "name": "Stikla mēģene",
+      "type": "trauks",
+      "count": 12,
+      "comments": "Viegli plīstoša"
+    }
+  ];
+
+  // Function to populate table
+  function populateTable(category) {
+    var tbody = $('#inventoryTable tbody');
+    tbody.empty(); // Clear previous data
+
+    // Filter data based on category
+    var filteredData;
+    if (category === 'all') {
+      filteredData = data;
+    } else {
+      filteredData = data.filter(function(item) {
+        return item.type === category;
+      });
+    }
+
+    // Populate table rows
+    filteredData.forEach(function(item) {
+      var row = $('<tr>');
+      row.append('<td>' + item.id + '</td>');
+      row.append('<td>' + item.name + '</td>');
+      row.append('<td>' + item.type + '</td>');
+      row.append('<td>' + item.count + '</td>');
+      row.append('<td>' + item.comments + '</td>');
+      tbody.append(row);
+    });
+  }
+
+  // Initial population of table
+  populateTable('all');
+
+  // Event listener for radio buttons
+  $('input[name="category"]').change(function() {
+    var category = $(this).val();
+    populateTable(category);
+  });
+});
+</script>
+
+</body>
+</html>
